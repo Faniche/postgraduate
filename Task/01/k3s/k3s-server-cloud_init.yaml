@@ -1,0 +1,5 @@
+# cloud-config
+runcmd:
+- export http_proxy=http://10.236.88.1:1080
+- export https_proxy=http://10.236.88.1:1080
+- curl -sfL https://get.k3s.io | sh -s - server --datastore-endpoint='mysql://root:root123@tcp(10.236.88.1:3306)/k3sdb'

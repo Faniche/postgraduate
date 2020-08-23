@@ -1,0 +1,4 @@
+runcmd:
+- export http_proxy=http://10.236.88.1:1080
+- export https_proxy=http://10.236.88.1:1080
+- curl --proxy http://10.236.88.1:1080 -sfL https://get.k3s.io | K3S_URL=https://10.236.88.1:6443 K3S_TOKEN=K1035e99f1f4f06ccdb2e711834313853eaadcf509c2d30a743ebf39680bd58cf62::server:7680cedcd385dde8a74eab27d56c88b9 sh -
