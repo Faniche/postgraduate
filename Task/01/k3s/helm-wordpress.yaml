@@ -1,0 +1,13 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: mywp
+  namespace: kube-system
+spec:
+  chart: stable/wordperss
+  targetNamespace: default
+  set:
+    wordpressUsername: "admin"
+    wordpressPassword: "admin"
+    mariadb.master.persistence.enabled: "false"
+    service.type: "NodePort"
