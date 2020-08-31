@@ -26,13 +26,13 @@ sudo sed -i '/swap/d' /etc/fstab
 # sysctl --system
 
 echo 'Pull the images'
-docker pull gotok8s/kube-apiserver:v1.18.6
-docker pull gotok8s/kube-controller-manager:v1.18.6
-docker pull gotok8s/kube-scheduler:v1.18.6
-docker pull gotok8s/kube-proxy:v1.18.6
+docker pull gotok8s/kube-apiserver:v1.19.0
+docker pull gotok8s/kube-controller-manager:v1.19.0
+docker pull gotok8s/kube-scheduler:v1.19.0
+docker pull gotok8s/kube-proxy:v1.19.0
 docker pull gotok8s/pause:3.2
-docker pull gotok8s/etcd:3.4.3-0
-docker pull gotok8s/coredns:1.6.7
+docker pull gotok8s/etcd:3.4.9-1
+docker pull gotok8s/coredns:1.7.0
 echo 'Finish'
 
 # command auto completion

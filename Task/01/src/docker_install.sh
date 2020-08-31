@@ -1,5 +1,5 @@
 #!/bin/bash
-PROXY_ADDRESS="http://10.100.0.1:1080"
+PROXY_ADDRESS="http://192.168.0.199:1080"
 
 # Uninstall old versions
 echo 'Uninstall old versions...'
@@ -21,15 +21,14 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 # 3. Add repository
 sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 
 # Install Docker Engine
-echo 'Intall docker engine...'
+echo 'Intall docker...'
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-echo 'Verify that Docker Engine...'
 echo 'Setting docker proxy'
 echo 'echo 'Environment="HTTP_PROXY='$PROXY_ADDRESS'"' >> /lib/systemd/system/docker.service' | sudo sh
 
@@ -60,4 +59,5 @@ echo 'Restarting Docker...'
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 docker run hello-world
+
 
